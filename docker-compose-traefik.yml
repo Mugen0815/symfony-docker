@@ -1,0 +1,44 @@
+version: '3.7'
+
+services:
+    php-apache:
+        build:
+            context: .
+        volumes:
+            - type: bind
+              source: ./src
+              target: /usr/src
+        networks:
+            - internal
+            - web
+        labels:
+            - traefik.http.routers.${TRAEFIK_SERVICE_NAME}.rule=Host(`${TRAEFIK_DOMAIN}`)
+            - traefik.http.routers.${TRAEFIK_SERVICE_NAME}.tls=true
+            - traefik.http.routers.${TRAEFIK_SERVICE_NAME}.tls.certresolver=lets-encrypt
+
+    mariadb:
+        image: mariadb:10.6.4-focal
+        volumes:
+            - type: volume
+              source: dbdata
+              target: /var/lib/mysql
+        environment:
+            TZ: "Europe/Rome"
+            MYSQL_ALLOW_EMPTY_PASSWORD: "no"
+            MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD}"
+            MYSQL_USER: '${MYSQL_USER}'
+            MYSQL_PASSWORD: '${MYSQL_PASSWORD}'
+            MYSQL_DATABASE: '${MYSQL_DATABASE}'
+        networks:
+            - internal
+
+volumes:
+    dbdata:
+    appdata:
+
+networks:
+    web:
+        external: true
+    internal:
+        external: false
+        
