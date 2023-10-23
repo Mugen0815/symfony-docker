@@ -1,6 +1,8 @@
 # Docker-Symfony
 [Source code](https://github.com/Mugen0815/symfony-docker)
-![build image](https://github.com/Mugen0815/symfony-docker/.github/workflows/docker-image.yml/badge.svg)
+
+![build image](https://github.com/Mugen0815/symfony-docker/actions/workflows/docker-image.yml/badge.svg)
+
 [Dockerhub](https://hub.docker.com/r/mugen0815/symfony-docker)
 
 
