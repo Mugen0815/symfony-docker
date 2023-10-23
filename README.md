@@ -1,8 +1,11 @@
 # Docker-Symfony
 [Source code](https://github.com/Mugen0815/symfony-docker)
+![build image](https://github.com/Mugen0815/symfony-docker/.github/workflows/docker-image.yml/badge.svg)
+[Dockerhub](https://hub.docker.com/r/mugen0815/symfony-docker)
+
 
 Minimalistic Docker environment for symfony 6(https://symfony.com/) 
-based on official php-apache docker-hub-library (https://hub.docker.com/_/php/tags?name=apache)
+based on official php-apache-image (https://hub.docker.com/_/php/tags?name=apache)
 including:
 * Composer
 * Symfony-CLI
@@ -28,6 +31,11 @@ with optional components via docker-compose:
 * (optional) MariaDB 10.6
 
 
+## What it does
+On startup, creates a symfony 6.3 webapp (configurabale via env-var) using symfony-cli
+or calls 'composer install' if app already exists and vendor-folder is missing (for existing projects from git)
+
+
 ## Setting up LOCAL environment
 1. git clone git@github.com:Mugen0815/symfony-docker.git
 2. cd symfony-docker
@@ -46,4 +54,4 @@ with optional components via docker-compose:
 ## Building the image only
 1. git clone git@github.com:Mugen0815/symfony-docker.git
 2. cd symfony-docker
-3. docker build .
+3. docker build . --no-cache

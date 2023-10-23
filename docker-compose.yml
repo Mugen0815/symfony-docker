@@ -4,6 +4,8 @@ services:
     php-apache:
         build:
             context: .
+        environment:
+            - SYMFONY_PARAMS=${SYMFONY_PARAMS}
         volumes:
             - type: bind
               source: ./src
@@ -11,7 +13,7 @@ services:
         ports:
             - '8080:80'
 
-    mariadb:
+    db:
         image: mariadb:10.6.4-focal
         volumes:
             - type: volume
@@ -27,4 +29,3 @@ services:
 
 volumes:
     dbdata:
-    
