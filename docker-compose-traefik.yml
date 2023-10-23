@@ -4,6 +4,8 @@ services:
     php-apache:
         build:
             context: .
+        environment:
+            - SYMFONY_PARAMS=${SYMFONY_PARAMS}
         volumes:
             - type: bind
               source: ./src
@@ -16,7 +18,7 @@ services:
             - traefik.http.routers.${TRAEFIK_SERVICE_NAME}.tls=true
             - traefik.http.routers.${TRAEFIK_SERVICE_NAME}.tls.certresolver=lets-encrypt
 
-    mariadb:
+    db:
         image: mariadb:10.6.4-focal
         volumes:
             - type: volume
