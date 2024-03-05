@@ -1,9 +1,13 @@
 # Docker-Symfony
 [Source code](https://github.com/Mugen0815/symfony-docker)
 
+[Dockerhub](https://hub.docker.com/r/mugen0815/symfony-docker)
+
 ![build image](https://github.com/Mugen0815/symfony-docker/actions/workflows/docker-image.yml/badge.svg)
 
-[Dockerhub](https://hub.docker.com/r/mugen0815/symfony-docker)
+![Docker Image Version (latest by date)](https://img.shields.io/docker/v/mugen0815/symfony-docker)  
+![Docker Image Size (latest by date)](https://img.shields.io/docker/image-size/mugen0815/symfony-docker)  
+![Docker Pulls](https://img.shields.io/docker/pulls/mugen0815/symfony-docker)  
 
 
 Minimalistic Docker environment for symfony 6(https://symfony.com/) 
@@ -34,7 +38,7 @@ with optional components via docker-compose:
 
 
 ## What it does
-On startup, creates a symfony 6.3 webapp (configurabale via env-var) using symfony-cli
+On startup, creates a symfony 6.4 webapp (configurabale via env-var) using symfony-cli
 or calls 'composer install' if app already exists and vendor-folder is missing (for existing projects from git)
 
 
